@@ -15,7 +15,7 @@ public class ProductController {
     private ProductRepo productRepo;
 
     // Public endpoint to view all products
-    @GetMapping("/public/all")
+    @GetMapping("/public/seeAll")
     public List<Product> getAllProducts() {
         return productRepo.findAll();
     }
