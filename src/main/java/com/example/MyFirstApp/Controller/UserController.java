@@ -2,6 +2,7 @@ package com.example.MyFirstApp.Controller;
 
 import com.example.MyFirstApp.Model.User;
 import com.example.MyFirstApp.Services.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,26 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(HttpSession session) {
+        System.out.println("Session ID: " + session.getId());
         return "login";
+    }
+
+    @PostMapping("/test-register")
+    public String testRegister() {
+        User testUser = new User("testuser", "testpass");
+        testUser.setEmail("test@example.com");
+        userService.save(testUser);
+        return "redirect:/login";
+    }
+    @GetMapping("/dashboard")
+    public String showDashboard() {
+        return "dashboard"; // Resolves to templates/dashboard.html
+    }
+
+    @GetMapping("/clear-session")
+    public String clearSession(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
     }
 }
