@@ -25,7 +25,7 @@ public class UserController {
             @RequestParam String username,
             @RequestParam String password,
             @RequestParam String email) {
-        User newUser = new User(username, password);
+        User newUser = new User(username, password, email);
         newUser.setEmail(email);
         userService.save(newUser);
         return "redirect:/login";
@@ -37,13 +37,6 @@ public class UserController {
         return "login";
     }
 
-    @PostMapping("/test-register")
-    public String testRegister() {
-        User testUser = new User("testuser", "testpass");
-        testUser.setEmail("test@example.com");
-        userService.save(testUser);
-        return "redirect:/login";
-    }
     @GetMapping("/dashboard")
     public String showDashboard() {
         return "dashboard"; // Resolves to templates/dashboard.html
