@@ -1,4 +1,4 @@
-# MyFirstApp - Cloud-Native, Scalable E-commerce Ecosystem
+# HyperCart  - Cloud-Native, Scalable E-commerce Ecosystem
 
 ## Overview
 **MyFirstApp** is an advanced, **AI-driven, cloud-native** eCommerce platform built on **Spring Boot**. Designed for high-traffic, enterprise-grade retail environments, it offers an **auto-scaling, microservices-based architecture** that supports **global commerce operations** with **zero-downtime deployments**. The application is optimized for **high availability, security, and multi-tenancy**, making it a future-ready eCommerce powerhouse.
