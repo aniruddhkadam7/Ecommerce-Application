@@ -1,4 +1,4 @@
-package com.example.MyFirstApp.Model;
+package com.example.hypercart.Model;
 
 import jakarta.persistence.*;
 import java.util.HashSet;

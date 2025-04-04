@@ -1,6 +1,6 @@
-package com.example.MyFirstApp.Repo;
+package com.example.hypercart.Repo;
 
-import com.example.MyFirstApp.Model.User;
+import com.example.hypercart.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

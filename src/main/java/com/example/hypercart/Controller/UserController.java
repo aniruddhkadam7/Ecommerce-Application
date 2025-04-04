@@ -1,7 +1,7 @@
-package com.example.MyFirstApp.Controller;
+package com.example.hypercart.Controller;
 
-import com.example.MyFirstApp.Model.User;
-import com.example.MyFirstApp.Services.UserService;
+import com.example.hypercart.Model.User;
+import com.example.hypercart.Services.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,9 +37,9 @@ public class UserController {
         return "login";
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping("/LandingPage")
     public String showDashboard() {
-        return "dashboard"; // Resolves to templates/dashboard.html
+        return "LandingPage"; // Resolves to templates/LandingPage
     }
 
     @GetMapping("/clear-session")

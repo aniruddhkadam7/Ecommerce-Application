@@ -1,6 +1,6 @@
-package com.example.MyFirstApp.Repo;
+package com.example.hypercart.Repo;
 
-import com.example.MyFirstApp.Model.Role;
+import com.example.hypercart.Model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepo extends JpaRepository<Role, Long> {

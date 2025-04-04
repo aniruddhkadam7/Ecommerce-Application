@@ -1,7 +1,7 @@
-package com.example.MyFirstApp;
+package com.example.hypercart;
 
-import com.example.MyFirstApp.Model.Role;
-import com.example.MyFirstApp.Repo.RoleRepo;
+import com.example.hypercart.Model.Role;
+import com.example.hypercart.Repo.RoleRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

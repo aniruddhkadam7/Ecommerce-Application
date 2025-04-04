@@ -1,4 +1,4 @@
-package com.example.MyFirstApp.config;
+package com.example.hypercart.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - Premium Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link th:href="@{/css/LandingPage.css}" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+    <h1><i class="fas fa-shopping-bag"></i> EliteShop</h1>
+    <div class="nav-links">
+        <a th:href="@{/home}"><i class="fas fa-home"></i> Home</a>
+        <a th:href="@{/cart}"><i class="fas fa-shopping-cart"></i> Cart</a>
+        <a th:href="@{/wishlist}"><i class="fas fa-heart"></i> Wishlist</a>
+        <a th:href="@{/contact}"><i class="fas fa-envelope"></i> Contact</a>
+        <a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="discount-badge">22% OFF</div>
+            <img src="https://images.unsplash.com/photo-1611791484670-ce19b801d192?ixlib=rb-1.2.1&auto=format&fit=crop&w=800" class="product-image" alt="Smartphone">
+            <div class="product-content">
+                <h3 class="product-title">Redmi Note 12 Pro</h3>
+                <p class="product-desc">6.67" AMOLED Display, 120Hz Refresh Rate, 5G Ready</p>
+                <p class="product-price">₹21,999 <span>₹28,000</span></p>
+                <div class="btn-group">
+                    <button class="btn btn-primary"><i class="fas fa-bolt"></i> Buy Now</button>
+                    <button class="btn btn-secondary"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn btn-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800" class="product-image" alt="Laptop">
+            <div class="product-content">
+                <h3 class="product-title">HP Pavilion x360</h3>
+                <p class="product-desc">Intel Core i7, 16GB RAM, 1TB SSD, Touchscreen</p>
+                <p class="product-price">₹85,999</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary"><i class="fas fa-bolt"></i> Buy Now</button>
+                    <button class="btn btn-secondary"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn btn-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800" class="product-image" alt="Smartwatch">
+            <div class="product-content">
+                <h3 class="product-title">Apple Watch Ultra</h3>
+                <p class="product-desc">Advanced health monitoring, GPS, 36hr battery</p>
+                <p class="product-price">₹69,999</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary"><i class="fas fa-bolt"></i> Buy Now</button>
+                    <button class="btn btn-secondary"><i class="fas fa-cart-plus"></i> Add</button>
+                    <button class="btn btn-wishlist"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-section">
+        <h4>About EliteShop</h4>
+        <p>Premium online shopping destination offering quality products with exclusive deals and fast delivery.</p>
+    </div>
+    <div class="footer-section">
+        <h4>Customer Service</h4>
+        <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-phone"></i> Contact Support</a></li>
+            <li><a href="#"><i class="fas fa-shipping-fast"></i> Track Order</a></li>
+            <li><a href="#"><i class="fas fa-undo"></i> Returns Policy</a></li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+            <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+            <li><a href="#"><i class="fas fa-certificate"></i> Security</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

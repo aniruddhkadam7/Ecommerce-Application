@@ -1,9 +1,9 @@
-package com.example.MyFirstApp.Services;
+package com.example.hypercart.Services;
 
-import com.example.MyFirstApp.Model.Role;
-import com.example.MyFirstApp.Model.User;
-import com.example.MyFirstApp.Repo.RoleRepo;
-import com.example.MyFirstApp.Repo.UserRepo;
+import com.example.hypercart.Model.Role;
+import com.example.hypercart.Model.User;
+import com.example.hypercart.Repo.RoleRepo;
+import com.example.hypercart.Repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
