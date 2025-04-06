@@ -1,6 +1,4 @@
 package com.example.hypercart.Controller.TestController;
 
-public class Notes {
-
-
+public class addedCartFeatures {
 }
