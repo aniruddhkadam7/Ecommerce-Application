@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+// ...
 
 @Configuration
 @EnableWebSecurity
@@ -17,31 +19,28 @@ public class SecurityConfig {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationSuccessHandler customLoginSuccessHandler; // <-- inject handler
 
-    public SecurityConfig(UserService userService, PasswordEncoder passwordEncoder) {
+    public SecurityConfig(UserService userService,
+                          PasswordEncoder passwordEncoder,
+                          AuthenticationSuccessHandler customLoginSuccessHandler) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.customLoginSuccessHandler = customLoginSuccessHandler;
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/register",
-                                "/login",
-                                "/css/**",
-                                "/js/**",
-                                "/images/**",
-                                "/webjars/**",
-                                "/api/**" // <-- Allow API calls
-                        ).permitAll()
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/register", "/login", "/css/**", "/js/**", "/images/**", "/webjars/**", "/api/**")
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/LandingPage", true)
+                        .successHandler(customLoginSuccessHandler) // 🔥 use this
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )

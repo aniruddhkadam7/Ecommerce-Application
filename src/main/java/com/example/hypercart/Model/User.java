@@ -10,9 +10,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String username;
     private String password;
     private String email;
+
+    // ✅ New Column: For quick access to user's main role (like "BUYER")
+    private String role;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -27,7 +31,17 @@ public class User {
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
-        this.email =email;
+        this.email = email;
+    }
+
+    // 🔽 Getters and Setters
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Set<Role> getRoles() {

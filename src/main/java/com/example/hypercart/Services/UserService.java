@@ -43,16 +43,37 @@ public class UserService implements UserDetailsService {
     }
 
     public void save(User user) {
+        // Encode password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        Role userRole = roleRepo.findByName("USER");
-        if (userRole == null) {
-            userRole = new Role("USER");
-            roleRepo.save(userRole);
-        }
+        // Get role selected in the form (BUYER, SELLER, ADMIN)
+        String selectedRole = user.getRole(); // comes from the HTML form
+
         Set<Role> roles = new HashSet<>();
-        roles.add(userRole);
-        user.setRoles(roles);
+
+        if (selectedRole != null && !selectedRole.isEmpty()) {
+            Role roleEntity = roleRepo.findByName(selectedRole.toUpperCase());
+
+            if (roleEntity == null) {
+                roleEntity = new Role(selectedRole.toUpperCase());
+                roleRepo.save(roleEntity);
+            }
+
+            roles.add(roleEntity);
+            user.setRoles(roles);
+            user.setRole(selectedRole.toUpperCase()); // Store string version too
+        } else {
+            // Default to BUYER if no role selected
+            Role buyerRole = roleRepo.findByName("BUYER");
+            if (buyerRole == null) {
+                buyerRole = new Role("BUYER");
+                roleRepo.save(buyerRole);
+            }
+
+            roles.add(buyerRole);
+            user.setRoles(roles);
+            user.setRole("BUYER");
+        }
 
         userRepo.save(user);
     }

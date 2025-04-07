@@ -1,54 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login | EliteShop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <title>Login - Hypercart</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 40px;">
+<div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+    <h2 style="margin-top: 0;">Login</h2>
+    <form th:action="@{/login}" method="post">
+        <label for="username" style="display: block; margin: 10px 0 5px;">Username:</label>
+        <input type="text" id="username" name="username" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
 
-<div class="login-container">
-    <div class="login-header">
-        <h1><i class="fas fa-lock"></i> Welcome Back</h1>
-        <p>Sign in to access your EliteShop account</p>
-    </div>
+        <label for="password" style="display: block; margin: 10px 0 5px;">Password:</label>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
 
-    <form method="post" action="/login">
-        <div th:if="${param.error}" class="error-message">
-            <i class="fas fa-exclamation-circle"></i>
-            <span>Invalid username or password. Please try again.</span>
-        </div>
-
-        <div class="form-group">
-            <label>Username</label>
-            <div class="input-icon">
-                <i class="fas fa-user"></i>
-                <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Password</label>
-            <div class="input-icon">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-            </div>
-        </div>
-
-        <div class="additional-links">
-            <label>
-                <input type="checkbox" name="remember-me"> Remember me
-            </label>
-            <a href="/forgot-password">Forgot password?</a>
-        </div>
-
-        <button type="submit" class="btn-login">
-            <i class="fas fa-sign-in-alt"></i> Login
-        </button>
+        <button type="submit" style="background-color: #008CBA; color: white; padding: 10px; border: none; cursor: pointer; width: 100%;">Login</button>
     </form>
-
-    <div class="signup-section">
-        Don't have an account? <a href="/register">Create one</a>
-    </div>
+    <p style="margin-top: 10px;">Need an account? <a th:href="@{/register}" style="color: #008CBA; text-decoration: none;">Register here</a></p>
 </div>
 </body>
 </html>

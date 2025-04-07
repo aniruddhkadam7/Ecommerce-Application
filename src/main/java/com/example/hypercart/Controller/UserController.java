@@ -24,22 +24,21 @@ public class UserController {
     public String registerUser(
             @RequestParam String username,
             @RequestParam String password,
-            @RequestParam String email) {
+            @RequestParam String email,
+            @RequestParam String role) { // 🟢 Add this line
+
         User newUser = new User(username, password, email);
-        newUser.setEmail(email);
+        newUser.setRole(role); // 🟢 Set the role coming from form
+
         userService.save(newUser);
         return "redirect:/login";
     }
+
 
     @GetMapping("/login")
     public String showLoginForm(HttpSession session) {
         System.out.println("Session ID: " + session.getId());
         return "login";
-    }
-
-    @GetMapping("/LandingPage")
-    public String showDashboard() {
-        return "LandingPage"; // Resolves to templates/LandingPage
     }
 
     @GetMapping("/clear-session")
