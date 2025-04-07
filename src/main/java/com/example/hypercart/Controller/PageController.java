@@ -6,18 +6,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
-    @GetMapping("/LandingPage")
-    public String landingPage() {
-        return "LandingPage"; // Thymeleaf resolves to LandingPage.html
+
+    @GetMapping("/BuyerLandingPage")
+    public String showBuyerLandingPage() {
+        return "BuyerLandingPage"; // refers to BuyerLandingPage.html in templates
     }
 
-    @GetMapping("/SellerDashboard")
+    @GetMapping("/SellerLandingPage")
     public String sellerPage() {
-        return "SellerDashboard";
+        return "SellerLandingPage";
     }
 
-    @GetMapping("/AdminDashboard")
+    @GetMapping("/AdminLandingPage")
     public String adminPage() {
-        return "AdminDashboard";
+        return "AdminLandingPage";
     }
 }

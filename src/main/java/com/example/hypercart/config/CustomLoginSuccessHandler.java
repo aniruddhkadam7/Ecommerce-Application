@@ -1,22 +1,18 @@
 package com.example.hypercart.config;
 
-import com.example.hypercart.Model.User;
-import com.example.hypercart.Repo.UserRepo;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Collection;
 
 @Component
 public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
-
-    @Autowired
-    private UserRepo userRepo;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
@@ -24,20 +20,19 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
                                         Authentication authentication)
             throws IOException, ServletException {
 
-        String username = authentication.getName();
-        User user = userRepo.findByUsername(username).orElse(null);
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        String redirectUrl = "/defaultPage"; // fallback
 
-        if (user != null) {
-            String role = user.getRole();  // assuming it's set properly
+        for (GrantedAuthority authority : authorities) {
+            String role = authority.getAuthority(); // e.g. ROLE_ADMIN
 
-            switch (role.toUpperCase()) {
-                case "ADMIN" -> response.sendRedirect("/AdminDashboard");
-                case "SELLER" -> response.sendRedirect("/SellerDashboard");
-                case "BUYER" -> response.sendRedirect("/LandingPage");
-                default -> response.sendRedirect("/defaultPage");
+            switch (role) {
+                case "ROLE_ADMIN" -> redirectUrl = "/AdminLandingPage";
+                case "ROLE_SELLER" -> redirectUrl = "/SellerLandingPage";
+                case "ROLE_BUYER" -> redirectUrl = "/BuyerLandingPage";
             }
-        } else {
-            response.sendRedirect("/login?error=true");
         }
+
+        response.sendRedirect(redirectUrl);
     }
 }
