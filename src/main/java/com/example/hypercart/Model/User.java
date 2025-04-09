@@ -14,8 +14,6 @@ public class User {
     private String username;
     private String password;
     private String email;
-
-    // ✅ New Column: For quick access to user's main role (like "BUYER")
     private String role;
 
     @ManyToMany(fetch = FetchType.EAGER)
