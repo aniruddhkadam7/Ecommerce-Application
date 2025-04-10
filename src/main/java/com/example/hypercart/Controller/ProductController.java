@@ -42,7 +42,7 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)  // this is for fetching data from create product
     public ResponseEntity<Product> updateProduct(
             @PathVariable Long id,
             @RequestParam("name") String name,
