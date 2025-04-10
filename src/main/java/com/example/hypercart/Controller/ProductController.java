@@ -23,7 +23,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/create", consumes = MediaType.MULTIPART_FORM_DATA_VALUE) // multipart is for taking file from form field
     public ResponseEntity<Product> createProduct(
             @RequestParam("name") String name,
             @RequestParam("price") double price,
