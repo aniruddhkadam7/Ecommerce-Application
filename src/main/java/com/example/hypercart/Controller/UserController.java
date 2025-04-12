@@ -41,7 +41,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/login")
+    @GetMapping("/login")   // login endpoint api
     public String showLoginForm(HttpSession session) {
         System.out.println("Session ID: " + session.getId());
         return "login";
