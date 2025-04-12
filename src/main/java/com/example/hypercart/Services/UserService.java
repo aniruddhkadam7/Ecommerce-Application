@@ -48,7 +48,7 @@ public class UserService implements UserDetailsService {
         );
     }
 
-    public void save(User user) throws IllegalArgumentException {
+    public void save(User user) throws IllegalArgumentException {           // after registration user gets save in user table with some constraint
         // Check for duplicate username
         if (userRepo.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username '" + user.getUsername() + "' is already taken.");
