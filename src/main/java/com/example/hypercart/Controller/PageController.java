@@ -14,7 +14,7 @@ public class PageController {
 
     @GetMapping("/SellerLandingPage")
     public String sellerPage() {
-        return "SellerLandingPage";
+        return "SellerLandingPage";  // refers to SellerLandingPage.html in templates
     }
 
     @GetMapping("/AdminLandingPage")
