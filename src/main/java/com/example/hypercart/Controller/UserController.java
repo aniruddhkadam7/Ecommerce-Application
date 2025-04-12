@@ -21,7 +21,7 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register")    // Register Endpoint API
     public String registerUser(
             @RequestParam String username,
             @RequestParam String password,
