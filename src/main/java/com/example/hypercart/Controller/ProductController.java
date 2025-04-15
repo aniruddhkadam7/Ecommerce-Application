@@ -1,4 +1,4 @@
-package com.example.hypercart.controller;
+package com.example.hypercart.Controller;
 
 import com.example.hypercart.Model.Product;
 import com.example.hypercart.Services.ProductService;
