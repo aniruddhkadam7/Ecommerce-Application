@@ -18,7 +18,7 @@ public class HypercartApplication {
 	CommandLineRunner init(RoleRepo roleRepo) {
 		return args -> {
 			if (roleRepo.findByName("USER") == null) {
-				Role userRole = new Role("USER"); //cccccccccccccccccccccc
+				Role userRole = new Role("USER");
 				roleRepo.save(userRole);
 			}
 		};
