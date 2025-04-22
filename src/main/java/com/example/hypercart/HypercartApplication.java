@@ -14,7 +14,7 @@ public class HypercartApplication {
 		SpringApplication.run(HypercartApplication.class, args);
 	}
 
-	@Bean         // its a beanddddssss
+	@Bean         // its a beanddddssssssss
 	CommandLineRunner init(RoleRepo roleRepo) {
 		return args -> {
 			if (roleRepo.findByName("USER") == null) {
