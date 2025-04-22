@@ -13,7 +13,13 @@
             <ul style="list-style: none; display: flex; gap: 20px;">
                 <li><a href="seller.html" style="color: #fff; text-decoration: none;">Switch to Seller</a></li>
                 <li><a href="#" style="color: #fff; text-decoration: none;">Cart</a></li>
-                <li><a href="#" style="color: #fff; text-decoration: none;">Logout</a></li>
+                <!-- Manual CSRF token injection -->
+                <form action="/logout" method="post">
+                    <input type="hidden"
+                           name="${_csrf.parameterName}"
+                           value="${_csrf.token}"/>
+                    <button type="submit">Logout</button>
+                </form>
             </ul>
         </nav>
     </div>

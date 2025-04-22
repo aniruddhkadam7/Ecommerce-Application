@@ -45,8 +45,10 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout")
-                        .permitAll()
+                        .logoutUrl("/logout") // Customize logout URL if needed
+                        .logoutSuccessUrl("/login?logout") // Redirect after logout
+                        .invalidateHttpSession(true) // Clear session
+                        .deleteCookies("JSESSIONID") // Remove session cookie
                 );
         return http.build();
     }
