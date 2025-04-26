@@ -1,4 +1,4 @@
-package com.example.MyFirstApp.Model;
+package com.example.hypercart.Model;
 
 import jakarta.persistence.*;
 import java.util.HashSet;
@@ -10,9 +10,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String username;
     private String password;
     private String email;
+    private String role;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -24,9 +26,20 @@ public class User {
 
     public User() {}
 
-    public User(String username, String password) {
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
+        this.email = email;
+    }
+
+    // 🔽 Getters and Setters
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Set<Role> getRoles() {

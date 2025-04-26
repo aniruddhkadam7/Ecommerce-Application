@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Management - Hypercart</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 40px;">
+<div style="max-width: 800px; margin: auto;">
+    <h2 style="margin-top: 0;">Admin Management</h2>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+        <tr>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">ID</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Username</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Email</th>
+            <th style="border: 1px solid #ddd; padding: 8px; text-align: left; background-color: #f2f2f2;">Roles</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td style="border: 1px solid #ddd; padding: 8px;" th:text="${user.id}"></td>
+            <td style="border: 1px solid #ddd; padding: 8px;" th:text="${user.username}"></td>
+            <td style="border: 1px solid #ddd; padding: 8px;" th:text="${user.email}"></td>
+            <td style="border: 1px solid #ddd; padding: 8px;" th:text="${user.roles} ? ${user.roles.stream().map(r -> r.name).collect(T(java.util.stream.Collectors).joining(', '))} : 'None'"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/clear-session}" style="background-color: #f44336; color: white; padding: 10px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">Logout</a>
+</div>
+</body>
+</html>
