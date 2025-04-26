@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>HyperCart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MyFirstApp</name>
+	<name>HyperCart</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
