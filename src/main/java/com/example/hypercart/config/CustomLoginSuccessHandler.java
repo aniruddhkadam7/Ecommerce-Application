@@ -28,8 +28,8 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
             switch (role) {
                 case "ROLE_ADMIN" -> redirectUrl = "/AdminLandingPage";
-                case "ROLE_SELLER" -> redirectUrl = "/SellerLandingPage";
-                case "ROLE_BUYER" -> redirectUrl = "/BuyerLandingPage";
+                case "ROLE_SELLER" -> redirectUrl = "/Seller";
+                case "ROLE_BUYER" -> redirectUrl = "/Buyer";
             }
         }
 

@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
 
 
-    @GetMapping("/BuyerLandingPage")
+    @GetMapping("/Buyer")
     public String showBuyerLandingPage() {
-        return "BuyerLandingPage"; // refers to BuyerLandingPage.html in templates
+        return "Buyer"; // refers to Buyer.html in templates
     }
 
-    @GetMapping("/SellerLandingPage")
+    @GetMapping("/Seller")
     public String sellerPage() {
         return "SellerLandingPage";  // refers to SellerLandingPage.html in templates
     }
 
-    @GetMapping("/AdminLandingPage")
+    @GetMapping("/Admin")
     public String adminPage() {
         return "AdminLandingPage";  // refers to AdminLandingPage.html in templates
     }
